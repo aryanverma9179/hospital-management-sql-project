@@ -13,7 +13,7 @@ create table hospital(
  addmission_date date,
  discharge_date date,
  medical_expenses numeric(10,2)
- );
+ );```
 
 #Problems And solutions
 
@@ -23,7 +23,7 @@ create table hospital(
 select
 hospital_name, avg(doctor_count) as avg_doctors
 from hospital
-group by hospital_name 
+group by hospital_name ```
 
 
 ### 2.top 3 department with the highest no of patient 
@@ -34,7 +34,7 @@ department, count(patient_count) as patientcount
 from hospital 
 group by department
 order by patientcount
-desc limit 3
+desc limit 3```
 
 ### 3.hospital with the maximum medcal expenses
 
@@ -44,7 +44,7 @@ hospital_name, medical_expenses
 from hospital
 order by medical_expenses
 desc limit 1;
-
+```
 
 ### 4.daily average medical expense
 
@@ -54,7 +54,7 @@ SELECT
     ROUND(AVG(medical_expenses), 2) AS daily_avg_expense
 FROM hospital
 GROUP BY addmission_date
-ORDER BY addmission_date;
+ORDER BY addmission_date;```
 
 ### 5.longest hospital stay
 
@@ -69,7 +69,7 @@ SELECT
 FROM hospital
 ORDER BY stay_duration_days DESC
 LIMIT 1;
-
+```
 
 
 
@@ -80,13 +80,13 @@ select
 location, sum(patient_count) as total_patient_pr_city
 from hospital
 group by location
-
+```
 ### 7.average  lenght of stay per department
 
 ```sql
 select
  addmission_date-coalesce(sum(discharge_date),0) as stay
-from hospital group by department
+from hospital group by department```
 
 
 ### 8.identify the department with the lowest number of patients 
@@ -96,4 +96,4 @@ select
  department, patient_count
 from hospital
 order by patient_count
-asc limit 1
+asc limit 1```
