@@ -15,7 +15,7 @@ create table hospital(
  medical_expenses numeric(10,2)
  );```
 
-#Problems And solutions
+## Problems And solutions
 
 ### 1. average on of doctors per hospital
 
