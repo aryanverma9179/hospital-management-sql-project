@@ -14,8 +14,10 @@ create table hospital(
  discharge_date date,
  medical_expenses numeric(10,2)
  );
+
 #Problems And solutions
-### 1.average on of doctors per hospital
+
+### 1. average on of doctors per hospital
 
 ```sql
 select
@@ -24,7 +26,7 @@ from hospital
 group by hospital_name 
 
 
---top 3 department with the highest no of patient 
+### 2.top 3 department with the highest no of patient 
 
 ```sql
 select
@@ -34,7 +36,7 @@ group by department
 order by patientcount
 desc limit 3
 
---hospital with the maximum medcal expenses
+### 3.hospital with the maximum medcal expenses
 
 ```sql
 select
@@ -44,7 +46,7 @@ order by medical_expenses
 desc limit 1;
 
 
---daily average medical expense
+### 4.daily average medical expense
 
 ```sql
 SELECT 
@@ -54,7 +56,7 @@ FROM hospital
 GROUP BY addmission_date
 ORDER BY addmission_date;
 
---longest hospital stay
+### 5.longest hospital stay
 
 ```sql
 SELECT 
@@ -71,7 +73,7 @@ LIMIT 1;
 
 
 
---total patient treated per city
+### 6.total patient treated per city
 
 ```sql
 select
@@ -79,7 +81,7 @@ location, sum(patient_count) as total_patient_pr_city
 from hospital
 group by location
 
---average  lenght of stay per department
+### 7.average  lenght of stay per department
 
 ```sql
 select
@@ -87,7 +89,7 @@ select
 from hospital group by department
 
 
---identify the department with the lowest number of patients 
+### 8.identify the department with the lowest number of patients 
 
 ```sql
 select
