@@ -3,6 +3,7 @@ SQL project analyzing hospital data: patients, doctors, stays, and medical expen
 #Overview
 #Objectives
 #Schema
+```sql
 create table hospital(
  hospital_name varchar(100),
  location varchar(100),
@@ -16,21 +17,30 @@ create table hospital(
 #Problems And solutions
 --average numbers of doctors per hospital
 
-select hospital_name, avg(doctor_count) as avg_doctors from hospital group by hospital_name 
+```sql
+select
+hospital_name, avg(doctor_count) as avg_doctors from hospital group by hospital_name 
 
 
 --top 3 department with the highest no of patient 
 
-select department, count(patient_count) as patientcount from hospital 
-group by department order by patientcount desc limit 3
+```sql
+select
+department, count(patient_count) as patientcount
+from hospital 
+group by department
+order by patientcount
+desc limit 3
 
 --hospital with the maximum medcal expenses
 
+```sql
 select hospital_name, medical_expenses from hospital order by medical_expenses desc limit 1;
 
 
 --daily average medical expense
 
+```sql
 SELECT 
     addmission_date,
     ROUND(AVG(medical_expenses), 2) AS daily_avg_expense
@@ -40,6 +50,7 @@ ORDER BY addmission_date;
 
 --longest hospital stay
 
+```sql
 SELECT 
     hospital_name,
     location,
@@ -56,14 +67,25 @@ LIMIT 1;
 
 --total patient treated per city
 
-select location, sum(patient_count) as total_patient_pr_city from hospital group by location
+```sql
+select
+location, sum(patient_count) as total_patient_pr_city
+from hospital
+group by location
 
 --average  lenght of stay per department
 
-select  addmission_date-coalesce(sum(discharge_date),0) as stay
+```sql
+select
+ addmission_date-coalesce(sum(discharge_date),0) as stay
 from hospital group by department
 
 
 --identify the department with the lowest number of patients 
 
-select department, patient_count from hospital order by patient_count asc limit 1
+```sql
+select
+ department, patient_count
+from hospital
+order by patient_count
+asc limit 1
