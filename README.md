@@ -19,7 +19,9 @@ create table hospital(
 
 ```sql
 select
-hospital_name, avg(doctor_count) as avg_doctors from hospital group by hospital_name 
+hospital_name, avg(doctor_count) as avg_doctors
+from hospital
+group by hospital_name 
 
 
 --top 3 department with the highest no of patient 
@@ -35,7 +37,11 @@ desc limit 3
 --hospital with the maximum medcal expenses
 
 ```sql
-select hospital_name, medical_expenses from hospital order by medical_expenses desc limit 1;
+select
+hospital_name, medical_expenses
+from hospital
+order by medical_expenses
+desc limit 1;
 
 
 --daily average medical expense
